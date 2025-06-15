@@ -1,0 +1,139 @@
+ :root{
+      --pri:#f8f4e1;
+      --sec:#4e1f00;
+      --tri1:#feba17;
+      --tri2:#53371c;
+ }
+
+
+@font-face {
+      font-family: aeonik;
+      src: url(./AeonikTRIAL-Light.otf);
+      font-weight: 200;
+}
+@font-face {
+      font-family: aeonik;
+      src: url(./AeonikTRIAL-Bold.otf);
+      font-weight: 500;
+}
+@font-face {
+      font-family: aeonik;
+      src: url(./AeonikTRIAL-Regular.otf);
+      font-weight: 700;
+}
+
+
+
+*{
+      margin:0;
+      padding : 0;
+      box-sizing:border-box;
+      font-family: aeonik;
+      font-weight: 700;
+      color: var(--pri);
+}
+html,
+body{
+      height : 100%;
+      width : 100%;
+}
+
+#main{
+      height: 100%;
+      width: 100%;
+      background-color: var(--tri2);
+
+}
+h1{
+      font-family: aeonik;
+      font-weight: 200;
+      color: var(--tir);
+}
+
+nav{
+      position: fixed;
+      width: 100%;
+      height: 60px;
+      background-color: var(--tri1);
+      display: none;
+}
+section.allElems{
+
+      height: 100%;
+      width: 100%;
+      padding: 40px;
+      padding-top: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 40px;
+      position: absolute;
+ 
+
+}
+
+.elem{
+      background-color: var(--tri1);
+    
+      font-size: 30px ;
+     
+      height: 400px;
+      width: 330px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      transform: all ease 0.2s;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+}
+.elem img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+}
+.elem h2{
+      position: absolute;
+      bottom: 4%;
+      font-weight: 500;
+      font-size: 33px;
+      right: 5%;
+
+}
+
+.elem:active{
+      scale : .97;
+}
+
+.fullElem{
+      height: 100%;
+      width: 100%;
+      background-color: #381c0a;
+      padding: 40px;
+      font-size: 60px;
+      display: none;
+      position: absolute;
+     
+}
+
+.fullElem h2{
+      font-size: 50px;
+      font-family: aeonik;
+      font-weight: 700;
+}
+
+.back{
+      position: absolute;
+      right: 5%;
+      background-color: red;
+      border-radius: 50%;
+      padding: 10px 11px;
+      border: none;
+      font-size: 20px;
+      font-weight: 700;
+
+}
+
+.back:active{
+      scale:.95;
+}
