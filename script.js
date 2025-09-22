@@ -1,24 +1,39 @@
-var allElems = document.querySelectorAll('.elem');
-var allElemsBack  = document.querySelectorAll('.fullElem .back')
+function openFeature(){
+  var allElems = document.querySelectorAll(".elem");
+var fullElemPage = document.querySelectorAll(".fullElem")
+var allElemsBack = document.querySelectorAll(".fullElem .back");
 
-allElems.forEach((elem)=>{
-    elem.addEventListener("click", function(){
+allElems.forEach((elem) => {
+  elem.addEventListener("click", function () {
     let id = elem.id;
 
+    fullElemPage[id].style.display = "block";
+  });
+});
+
+allElemsBack.forEach(function (back) {
+  back.addEventListener("click", function () {
+    document.querySelectorAll(".fullElem")[back.id].style.display = "none";
+  });
+});
+
+}
+
+openFeature()
 
 
-      document.querySelectorAll('.fullElem')[id].style.display= 'block'
-     
-       
-        
-    })
-    
-})
+let form = document.querySelector(".addTask form")
+let taskInput = document.querySelector(".addTask form .task-input")
+let taskDetailsInput = document.querySelector(".addTask form textarea")
+let taskCheckBox = document.querySelector(".addTask form .mark-imp input")
 
+let currentTask =[]
 
-allElemsBack.forEach(function(back){
+form.addEventListener('submit', function(e){
+  e.preventDefault()
 
-    back.addEventListener('click', function(){
-      document.querySelectorAll('.fullElem')[back.id].style.display = 'none'
-    })
+console.log(taskCheckBox.checked);
+
+ 
+  
 })
