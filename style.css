@@ -250,13 +250,45 @@ form .mark-imp input{
 
       
 }
+.task details{
+  font-size: 25px;
+  font-weight:400;
+  color:black;
+ 
+  
+}
+.task summary{
+  color: var(--sec);
+  margin-bottom: 10px;
+  
 
-.task h5{
+
+}
+
+.task h1{
       color: var(--sec);
       font-size: 35px;
-      text-transform: capitalize;
+    text-transform: capitalize;
+      display: flex;
+      align-items: flex-start;
+      font-weight: 1000;
      
 }
+.task h1 span.true{
+  opacity: 1;
+  margin-left: 15px;
+  background-color: rgb(206, 58, 58);
+  padding: 1px 10px ;
+  color: var(--pri);
+  border-radius: 10px;
+  font-size: 18px;
+
+}
+.task h1 span.false{
+  opacity: 0;
+}
+
+
 .task button{
       padding: 12px 25px;
       color: var(--pri);
