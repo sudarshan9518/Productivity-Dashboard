@@ -17,7 +17,7 @@ function openFeature() {
     });
   });
 }
-openFeature();
+// openFeature();
 
 function todoList() {
   let form = document.querySelector(".addTask form");
@@ -85,7 +85,7 @@ function todoList() {
     taskCheckBox.checked = false;
   });
 }
-todoList();
+//todoList();
 
 function dailyPlanner() {
   var dayPlanData = JSON.parse(localStorage.getItem("dayPlanData")) || {};
@@ -126,5 +126,32 @@ function dailyPlanner() {
     });
   });
 }
+//dailyPlanner();
 
-dailyPlanner();
+function dailyQuotes() {
+  let wrapper = document.querySelector(".motivational-wrapper");
+
+  async function fetchQuote() {
+    let response = await fetch(
+      "https://api.realinspire.live/v1//quotes/random"
+    );
+    let data = await response.json();
+
+    let inner = `  <img src="./icons8-quote-100.png" alt="">
+              <div class="motivation-1">
+                <h2>Quote Of The Day...</h2>
+              </div>
+              <div class="motivation-2">
+                <h1>${data[0].content}</h1>
+              </div>
+              <div class="motivation-3">
+                <h2>~ ${data[0].author}</h2>
+              </div>`;
+
+    wrapper.innerHTML = inner;
+  }
+  fetchQuote();
+}
+//dailyQuotes();
+
+
