@@ -9,17 +9,17 @@
 
 @font-face {
   font-family: aeonik;
-  src: url(./AeonikTRIAL-Light.otf);
+  src: url(./content/AeonikTRIAL-Light.otf);
   font-weight: 200;
 }
 @font-face {
   font-family: aeonik;
-  src: url(./AeonikTRIAL-Bold.otf);
+  src: url(./content/AeonikTRIAL-Bold.otf);
   font-weight: 500;
 }
 @font-face {
   font-family: aeonik;
-  src: url(./AeonikTRIAL-Regular.otf);
+  src: url(./content/AeonikTRIAL-Regular.otf);
   font-weight: 700;
 }
 
@@ -62,14 +62,24 @@ section.allElems {
   height: 100%;
   width: 100%;
   padding: 40px;
-  padding-top: 80px;
-  display: flex;
+ overflow: auto;
+  position: absolute;
+}
+.allElems .allfeatures{
+
+ display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 40px;
-  position: absolute;
 }
 
+.allElems header{
+  height:400px;
+  width: 100%;
+  background-color: var(--tri2);
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
 .elem {
   background-color: #feba17;
 
@@ -152,14 +162,14 @@ section.allElems {
   border-radius: 20px;
 }
 
-.todo-fullPage .todo-container .addTask form {
+.todo-container .addTask form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 30px;
 }
 
-.todo-fullPage .todo-container .addTask form .task-input {
+.todo-container .addTask form .task-input {
   padding: 15px 25px;
   width: 100%;
   font-size: 28px;
@@ -218,7 +228,7 @@ form .mark-imp input {
 .todo-container .addTask form button:active {
   scale: 0.96;
 }
-.todo-fullPage .todo-container .allTask {
+.todo-container .allTask {
   height: 100%;
   width: 65%;
   background-color: var(--tri2);
@@ -229,7 +239,7 @@ form .mark-imp input {
   padding: 30px;
   overflow: auto;
 }
-.todo-fullPage .todo-container .allTask .task {
+.todo-container .allTask .task {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -412,35 +422,47 @@ form .mark-imp input {
   opacity: 0.2;
 }
 
-
-
 /* pomodoro timer */
 
-
-.pomodoro-fullPage{
-  display: block;
-}
-.pomodoro-fullPage h2{
+.pomodoro-fullPage h2 {
   font-size: 60px;
 }
-.pomodoro-fullPage .pomo-timer{
+
+.pomodoro-fullPage .session {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  background-color: var(--tri1);
+  border-radius: 20px;
+  width: fit-content;
+  padding: 5px 20px;
+  opacity: 1;
+  font-size: 50px;
+  font-family: areonic;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--sec);
+}
+
+.pomodoro-fullPage .pomo-timer {
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align:center;
-  border:2px solid  var(--fade) ;
+  text-align: center;
+  border: 2px solid var(--fade);
   border-radius: 15px;
   padding: 70px 70px;
 }
 
-.pomo-timer h1{
+.pomo-timer h1 {
   font-size: 170px;
-  font-weight:1000;
+  font-weight: 1000;
 }
 
-.pomo-timer button{
-  
+.pomo-timer button {
   background-color: var(--tri2);
   padding: 15px 40px;
   font-size: 30px;
@@ -448,10 +470,167 @@ form .mark-imp input {
   border-radius: 5px;
   border: none;
   box-shadow: 5px 5px 0px black;
-  transition: all ease .21s;
+  transition: all ease 0.1s;
 }
-.pomo-timer button:active{
+.pomo-timer button:active {
   box-shadow: 0px 0px 0px black;
 
-  scale: .96;
+  scale: 0.96;
+}
+
+/* daily goals */
+
+.dailyGoals-fullPage h2 {
+  font-size: 60px;
+  font-family: aeonik;
+  font-weight: 800;
+}
+.dailyGoals-fullPage .goal-container {
+  height: 80%;
+  width: 100%;
+  margin-top: 40px;
+
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dailyGoals-fullPage .goal-container .addTask {
+  height: 100%;
+  width: 33%;
+  background-color: var(--tri2);
+  border-radius: 20px;
+}
+
+.goal-container .addTask form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+.goal-container .addTask form .task-input {
+  padding: 15px 25px;
+  width: 100%;
+  font-size: 28px;
+  background-color: var(--sec);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
+.goal-container .addTask form textarea {
+  padding: 15px 25px;
+  width: 100%;
+  font-size: 29px;
+  font-weight: 1000;
+  background-color: var(--sec);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
+.goal-container .addTask form button {
+  padding: 15px 25px;
+  width: 50%;
+  font-size: 29px;
+  background-color: var(--tri1);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
+.goal-container .addTask form .mark-imp {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 15px;
+  /*   background-color: red;*/
+  width: 100%;
+  margin-left: 10px;
+}
+.goal-container .addTask form .mark-imp label {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 800;
+}
+form .mark-imp input {
+  padding: 10px;
+  scale: 2;
+}
+
+.btn-setter {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 1px;
+}
+.goal-container .addTask form button:active {
+  scale: 0.96;
+}
+.goal-container .allTask {
+  height: 100%;
+  width: 65%;
+  background-color: var(--tri2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  overflow: auto;
+}
+.goal-container .allTask .task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--fade);
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.task details {
+  font-size: 25px;
+  font-weight: 400;
+  color: black;
+}
+.task summary {
+  color: var(--sec);
+  margin-bottom: 10px;
+}
+
+.task h1 {
+  color: var(--sec);
+  font-size: 35px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 1000;
+}
+.task h1 span.true {
+  opacity: 1;
+  margin-left: 15px;
+  background-color: rgb(206, 58, 58);
+  padding: 1px 10px;
+  color: var(--pri);
+  border-radius: 10px;
+  font-size: 18px;
+}
+.task h1 span.false {
+  opacity: 0;
+}
+
+.task button {
+  padding: 12px 25px;
+  color: var(--pri);
+  background-color: green;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+
+  font-weight: 600;
+}
+.task button:active {
+  scale: 0.98;
 }

@@ -17,7 +17,7 @@ function openFeature() {
     });
   });
 }
-// openFeature();
+openFeature();
 
 function todoList() {
   let form = document.querySelector(".addTask form");
@@ -85,7 +85,7 @@ function todoList() {
     taskCheckBox.checked = false;
   });
 }
-//todoList();
+todoList();
 
 function dailyPlanner() {
   var dayPlanData = JSON.parse(localStorage.getItem("dayPlanData")) || {};
@@ -126,7 +126,7 @@ function dailyPlanner() {
     });
   });
 }
-//dailyPlanner();
+dailyPlanner();
 
 function dailyQuotes() {
   let wrapper = document.querySelector(".motivational-wrapper");
@@ -137,7 +137,7 @@ function dailyQuotes() {
     );
     let data = await response.json();
 
-    let inner = `  <img src="./icons8-quote-100.png" alt="">
+    let inner = `  <img src="./content/icons8-quote-100.png" alt="">
               <div class="motivation-1">
                 <h2>Quote Of The Day...</h2>
               </div>
@@ -152,6 +152,170 @@ function dailyQuotes() {
   }
   fetchQuote();
 }
-//dailyQuotes();
+dailyQuotes();
+
+function pomodoro() {
+  let timer = document.querySelector(".pomo-timer h1");
+  let startBtn = document.querySelector(".pomo-timer .timer-start");
+  let pausetBtn = document.querySelector(".pomo-timer .timer-pause");
+  let resetBtn = document.querySelector(".pomo-timer .timer-reset");
+
+  let totalSecound = 25 * 60;
+  let timerInterval = null;
+  let isComplete = false;
+  function upDateTime() {
+    let minutes = Math.floor(totalSecound / 60);
+    let secounds = totalSecound % 60;
+
+    timer.innerHTML = `${String(minutes).padStart(2, "0")}:${String(
+      secounds
+    ).padStart(2, "0")}`;
+  }
+
+  function startTimer() {
+    if (!isComplete) {
+      clearInterval(timerInterval);
+
+      timerInterval = setInterval(() => {
+        if (totalSecound > 0) {
+          totalSecound--;
+          upDateTime();
+        } else {
+          pauseTimer();
+          isComplete = true;
+          let a = document.querySelector(".pomodoro-fullPage .session");
+          a.innerHTML = "Take A Break";
+
+          document.querySelector(".pomo-timer h1").innerHTML = "05:00";
+          totalSecound = 5 * 60;
+        }
+      }, 1000);
+    } else {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (totalSecound > 0) {
+          totalSecound--;
+          upDateTime();
+        } else {
+          pauseTimer();
+          isComplete = false;
+          let a = document.querySelector(".pomodoro-fullPage .session");
+          a.innerHTML = "work session";
+
+          document.querySelector(".pomo-timer h1").innerHTML = "25:00";
+          totalSecound = 25 * 60;
+        }
+      }, 1000);
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval);
+  }
+
+  function resetTimer() {
+    totalSecound = 25 * 60;
+    clearInterval(timerInterval);
+    upDateTime();
+  }
+
+  startBtn.addEventListener("click", startTimer);
+  pausetBtn.addEventListener("click", pauseTimer);
+  resetBtn.addEventListener("click", resetTimer);
+}
+pomodoro();
+
+function goalsList() {
+  let formm = document.querySelector(".goal-container .addTask form");
+  let goalsinput = document.querySelector(
+    " .goal-container .addTask form .task-input"
+  );
+  let goalsdetail = document.querySelector(
+    " .goal-container .addTask form textarea"
+  );
+  let taskcheck = document.querySelector(
+    " .goal-container .addTask form .mark-imp input"
+  );
+  let allTask = document.querySelector(".goal-container .allTask");
+  let today = new Date().toISOString().split("T")[0];
+  let currentgoals = {};
+
+  if (currentgoals.date && currentgoals.date !== today) {
+    currentgoals = { date: today };
+    localStorage.setItem("currentgoals", JSON.stringify(currentgoals));
+  }
+
+  function localstorage() {
+    if (localStorage.getItem("currentgoals")) {
+      currentgoals = JSON.parse(localStorage.getItem("currentgoals"));
+    } else {
+      console.log("task is empty");
+    }
+  }
+  localstorage();
+
+  function renderTask() {
+    let sum = ``;
+
+    currentgoals.forEach(function (elem, idx) {
+      sum =
+        sum +
+        `<div class="task">
+                        <h1>${elem.task}
+                        <span class=${elem.imp}>imp</span>
+                        </h1>
+                        <details>
+                        <summary>Tap for details...</summary>
+                        ${elem.details}
+                        </details>
+                        <button id=${idx}>Completed</button>
+                    </div>`;
+    });
+
+    allTask.innerHTML = sum;
+
+    let markCompletedBtn = document.querySelectorAll(
+      ".goal-container .task button"
+    );
+
+    markCompletedBtn.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+      currentgoals.splice(btn.id, 1);
+        renderTask();
+      });
+    });
+
+    localStorage.setItem("currentgoals", JSON.stringify(currentgoals));
+    currentgoals.date = today;
+  }
+  renderTask();
+
+  formm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    currentgoals.push({
+      task: goalsinput.value,
+      details: goalsdetail.value,
+      imp: taskcheck.checked,
+    });
+
+    renderTask();
+
+    goalsinput.value = "";
+    goalsdetail.value = "";
+    taskcheck.checked = false;
+  });
+}
+goalsList();
 
 
+let APIkey = `8fd7cca8f4e84fb4b90181831252609`;
+
+async function wheatherApi(){
+  let city = 'mumbai'
+  let response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${APIkey}&q=${city}`)
+let data = await response.json()  
+console.log(data);
+
+} 
+wheatherApi()
