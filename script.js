@@ -238,7 +238,7 @@ function goalsList() {
   );
   let allTask = document.querySelector(".goal-container .allTask");
   let today = new Date().toISOString().split("T")[0];
-  let currentgoals = {};
+  let currentgoals = [];
 
   if (currentgoals.date && currentgoals.date !== today) {
     currentgoals = { date: today };
