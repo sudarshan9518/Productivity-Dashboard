@@ -280,7 +280,7 @@ function goalsList() {
 
     markCompletedBtn.forEach(function (btn) {
       btn.addEventListener("click", function () {
-      currentgoals.splice(btn.id, 1);
+        currentgoals.splice(btn.id, 1);
         renderTask();
       });
     });
@@ -308,14 +308,104 @@ function goalsList() {
 }
 goalsList();
 
+function gettDay() {
+  var header1H1timer = document.querySelector(".header1 h1");
+  var header1H2Sdate = document.querySelector(".header1 h2");
 
-let APIkey = `8fd7cca8f4e84fb4b90181831252609`;
+  const dayInWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-async function wheatherApi(){
-  let city = 'mumbai'
-  let response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${APIkey}&q=${city}`)
-let data = await response.json()  
-console.log(data);
+  var date = new Date();
+  let day = dayInWeek[date.getDay()];
+  let minutes = date.getMinutes().toString().padStart(2, "0");
+  let hourr = date.getHours().toString().padStart(2, "0");
+  let h = date.getHours() % 12;
+  let hh = h.toString().padStart(2, "0");
+  let secound = date.getSeconds().toString().padStart(2, "0");
+  let timerrr = ``;
+  if (hourr >= 12) {
+    timerrr = "PM";
+  } else {
+    timerrr = "AM";
+  }
+  let totalMonths = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let datee = date.getDate();
+  let month = totalMonths[date.getMonth()];
 
-} 
-wheatherApi()
+  let year = date.getFullYear() % 100;
+
+  header1H1timer.innerHTML = `${day},${hh}:${minutes}:${secound} ${timerrr} `;
+  header1H2Sdate.innerHTML = `${datee} ${month} ${year}`;
+}
+gettDay();
+
+setInterval(() => {
+  gettDay();
+}, 1000);
+
+async function weatherApi() {
+  let APIkey = `8fd7cca8f4e84fb4b90181831252609`;
+  let location = document.querySelector(".header1 h4");
+  let allinfo = document.querySelector(".header2");
+  let city = "shirdi";
+  let response = await fetch(
+    `http://api.weatherapi.com/v1/current.json?key=${APIkey}&q=${city}`
+  );
+  let data = await response.json();
+
+  console.log(data);
+
+  location.innerHTML = ` 📍${data.location.name}`;
+
+  allinfo.innerHTML = `
+  <h2>${data.current.temp_c}  <sup>o</sup>C</h2>
+            <h4>${data.current.condition.text}</h4>
+ <h3>Visibility : ${data.current.vis_km} Km</h3>
+            <h3>Humidity : ${data.current.humidity}%</h3>
+            <h3>Wind : ${data.current.wind_kph} km/h</h3>`;
+}
+weatherApi();
+
+function changeTheme() {
+  let theme = document.querySelector("nav .nav-in button");
+  let rootElem = document.documentElement;
+  let change = false;
+  theme.addEventListener("click", function () {
+    if (!change) {
+      rootElem.style.setProperty("--sec", "#000000ff");
+      rootElem.style.setProperty("--tri2", "#767272ff");
+      rootElem.style.setProperty("--fade", "#959595ff");
+      rootElem.style.setProperty("--tri1", "#413b3bff");
+      rootElem.style.setProperty("--ptr", "#ffffffff");
+      change = true;
+    } else {
+      rootElem.style.setProperty("--sec", "#381c0a");
+      rootElem.style.setProperty("--tri2", "#74512d");
+      rootElem.style.setProperty("--fade", "#d2b395");
+      rootElem.style.setProperty("--tri1", "#feba17");
+      rootElem.style.setProperty("--ptr", "#f8f4e1");
+      change = false;
+    }
+  });
+}
+changeTheme();

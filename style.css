@@ -1,10 +1,14 @@
+
+
 :root {
   --pri: #f8f4e1;
   --sec: #381c0a;
   --tri1: #feba17;
   --tri2: #74512d;
-  --red: #dc3434;
   --fade: #d2b395;
+  --red: #dc3434;
+  --green: green;
+  --black: black;
 }
 
 @font-face {
@@ -26,9 +30,9 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: aeonik;
-
   color: var(--pri);
 }
 html,
@@ -46,55 +50,201 @@ body {
   width: 100%;
   background-color: var(--sec);
 }
+
+#main nav {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+#main nav .nav-in {
+  width: 97%;
+  height: 100%;
+  padding: 5px;
+  background-color: var(--tri2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 20px;
+}
+#main nav .nav-in h1 {
+  font-family: areonic;
+  font-weight: 700;
+  font-size: 40px;
+  margin-left: 20px;
+  padding: 5px;
+  text-shadow: 2px 2px var(--sec);
+}
+#main nav .nav-in button {
+  width: 50px;
+  color: var(--red);
+  background-color: var(--tri2);
+  border: none;
+  font-size: 40px;
+  margin-right: 50px;
+  text-shadow: 2px 2px var(--sec);
+  -webkit-transition: all ease 0.2s;
+  -o-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+#main nav .nav-in button:active {
+  scale: 0.96;
+}
 h1 {
   font-family: aeonik;
   font-weight: 200;
   color: var(--tir);
 }
-
-nav {
-  position: fixed;
-  width: 100%;
-  height: 60px;
-  background-color: var(--tri2);
-}
 section.allElems {
   height: 100%;
   width: 100%;
   padding: 40px;
- overflow: auto;
+  overflow: auto;
   position: absolute;
 }
-.allElems .allfeatures{
-
- display: flex;
+.allElems .allfeatures {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   gap: 40px;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
 }
 
-.allElems header{
-  height:400px;
+.allElems header {
+  height: 400px;
   width: 100%;
   background-color: var(--tri2);
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.1)),
+      to(rgba(0, 0, 0, 0.5))
+    ),
+    url(https://images.unsplash.com/photo-1534030665069-90e016e995e5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url(https://images.unsplash.com/photo-1534030665069-90e016e995e5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url(https://images.unsplash.com/photo-1534030665069-90e016e995e5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
   margin-bottom: 30px;
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 500px;
+  padding: 40px;
+  padding-bottom: 0px;
+}
+.elem h2 {
+  text-shadow: 2px 2px var(--sec);
+}
+.header1 {
+  position: relative;
+}
+header .header1 h2 {
+  text-shadow: 2px 2px var(--sec);
+  font-size: 35px;
+  font-weight: 300;
+  padding-left: 30px;
+}
+header .header1 h1 {
+  font-family: areonic;
+  font-size: 90px;
+  font-weight: 700;
+  text-shadow: 2px 2px var(--sec);
+  text-transform: capitalize;
+  padding: px;
+  margin-top: 10px;
+}
+header .header1 h4 {
+  font-family: areonic;
+  font-weight: 500;
+  text-shadow: 2px 2px var(--sec);
+  margin-bottom: 0px;
+  margin-top: 50px;
+  padding: 5px;
+  font-size: 30px;
+  opacity: 0.9;
+  position: absolute;
+}
+.header2 {
+  margin-left: 40px;
+  padding-left: 40px;
+}
+header .header2 h2 {
+  font-family: areonic;
+  text-shadow: 2px 2px var(--sec);
+
+  font-size: 80px;
+  font-weight: 1000;
+  text-transform: capitalize;
+}
+
+header .header2 h4 {
+  font-family: areonic;
+  text-transform: capitalize;
+  text-shadow: 2px 2px var(--sec);
+
+  font-weight: 500;
+  margin: 20px;
+  font-size: 50px;
+}
+sup {
+  font-size: 39px;
+}
+
+header .header2 h3 {
+  font-family: areonic;
+  text-transform: lowercase;
+  text-shadow: 2px 2px var(--sec);
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-top: 5px;
+  font-size: 25px;
+  padding: 2.5px;
 }
 .elem {
-  background-color: #feba17;
+  background-color: var(--tri1);
 
   height: 400px;
   width: 330px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  -webkit-transition: all ease 0.2s;
+  -o-transition: all ease 0.2s;
   transition: all ease 0.2s;
   cursor: pointer;
+  -webkit-box-shadow: 0 5px 20px var(--tri2);
   box-shadow: 0 5px 20px var(--tri2);
 }
 .elem img {
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 .elem h2 {
@@ -112,7 +262,7 @@ section.allElems {
 .fullElem {
   height: 100%;
   width: 100%;
-  background-color: #381c0a;
+  background-color: var(--sec);
   padding: 40px;
   font-size: 60px;
   display: none;
@@ -150,8 +300,14 @@ section.allElems {
   margin-top: 40px;
 
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -163,8 +319,15 @@ section.allElems {
 }
 
 .todo-container .addTask form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   padding: 30px;
 }
@@ -201,8 +364,14 @@ section.allElems {
   margin-bottom: 20px;
 }
 .todo-container .addTask form .mark-imp {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
   justify-content: left;
   font-size: 15px;
   /*   background-color: red;*/
@@ -221,7 +390,11 @@ form .mark-imp input {
 
 .btn-setter {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: end;
   padding: 1px;
 }
@@ -233,15 +406,28 @@ form .mark-imp input {
   width: 65%;
   background-color: var(--tri2);
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   padding: 30px;
   overflow: auto;
 }
 .todo-container .allTask .task {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
   background-color: var(--fade);
@@ -252,7 +438,7 @@ form .mark-imp input {
 .task details {
   font-size: 25px;
   font-weight: 400;
-  color: black;
+  color: var(--black);
 }
 .task summary {
   color: var(--sec);
@@ -263,14 +449,18 @@ form .mark-imp input {
   color: var(--sec);
   font-size: 35px;
   text-transform: capitalize;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   font-weight: 1000;
 }
 .task h1 span.true {
   opacity: 1;
   margin-left: 15px;
-  background-color: rgb(206, 58, 58);
+  background-color: var(--red);
   padding: 1px 10px;
   color: var(--pri);
   border-radius: 10px;
@@ -283,7 +473,7 @@ form .mark-imp input {
 .task button {
   padding: 12px 25px;
   color: var(--pri);
-  background-color: green;
+  background-color: var(--green);
   font-size: 20px;
   border-radius: 5px;
   border: none;
@@ -307,14 +497,25 @@ form .mark-imp input {
   width: 100%;
   border-radius: 10px;
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: auto;
 }
 .dailyPlanner-fullPage .day-planner .day-planner-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
   width: 49%;
@@ -353,6 +554,8 @@ form .mark-imp input {
   border-radius: 50px;
   top: 15%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -364,12 +567,14 @@ form .mark-imp input {
   background-color: var(--tri1);
   border-radius: 50px;
   scale: 1.15;
+  -webkit-filter: blur(1000px);
   filter: blur(1000px);
   z-index: 8;
 }
 .motivationalQuotes-fullPage .motivation-container .motivational-wrapper {
   z-index: 10;
   position: absolute;
+  -webkit-box-shadow: 10px 10px 400px 10px var(--tri1);
   box-shadow: 10px 10px 400px 10px var(--tri1);
 
   width: 100%;
@@ -383,6 +588,8 @@ form .mark-imp input {
   background-color: var(--tri2);
   padding: 20px;
   border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .motivation-1 h2 {
@@ -403,6 +610,8 @@ form .mark-imp input {
   /*background-color: var(--tri2);*/
   padding: 20px;
   border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin-left: 65%;
 }
@@ -411,7 +620,7 @@ form .mark-imp input {
   font-weight: 400;
   text-transform: capitalize;
   font-style: italic;
-  text-shadow: 1.5px 1.5px 1px black;
+  text-shadow: 1.5px 1.5px 1px var(--black);
 }
 
 .motivational-wrapper img {
@@ -432,10 +641,14 @@ form .mark-imp input {
   position: absolute;
   top: 18%;
   left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   z-index: 10;
   background-color: var(--tri1);
   border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 5px 20px;
   opacity: 1;
@@ -450,6 +663,8 @@ form .mark-imp input {
   position: absolute;
   top: 45%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
   border: 2px solid var(--fade);
@@ -469,11 +684,15 @@ form .mark-imp input {
   margin: 10px;
   border-radius: 5px;
   border: none;
-  box-shadow: 5px 5px 0px black;
+  -webkit-box-shadow: 5px 5px 0px var(--black);
+  box-shadow: 5px 5px 0px var(--black);
+  -webkit-transition: all ease 0.1s;
+  -o-transition: all ease 0.1s;
   transition: all ease 0.1s;
 }
 .pomo-timer button:active {
-  box-shadow: 0px 0px 0px black;
+  -webkit-box-shadow: 0px 0px 0px var(--black);
+  box-shadow: 0px 0px 0px var(--black);
 
   scale: 0.96;
 }
@@ -491,8 +710,14 @@ form .mark-imp input {
   margin-top: 40px;
 
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -504,8 +729,15 @@ form .mark-imp input {
 }
 
 .goal-container .addTask form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   padding: 30px;
 }
@@ -542,8 +774,14 @@ form .mark-imp input {
   margin-bottom: 20px;
 }
 .goal-container .addTask form .mark-imp {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
   justify-content: left;
   font-size: 15px;
   /*   background-color: red;*/
@@ -562,7 +800,11 @@ form .mark-imp input {
 
 .btn-setter {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: end;
   padding: 1px;
 }
@@ -574,15 +816,28 @@ form .mark-imp input {
   width: 65%;
   background-color: var(--tri2);
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   padding: 30px;
   overflow: auto;
 }
 .goal-container .allTask .task {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
   background-color: var(--fade);
@@ -593,7 +848,7 @@ form .mark-imp input {
 .task details {
   font-size: 25px;
   font-weight: 400;
-  color: black;
+  color: var(--black);
 }
 .task summary {
   color: var(--sec);
@@ -604,14 +859,18 @@ form .mark-imp input {
   color: var(--sec);
   font-size: 35px;
   text-transform: capitalize;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   font-weight: 1000;
 }
 .task h1 span.true {
   opacity: 1;
   margin-left: 15px;
-  background-color: rgb(206, 58, 58);
+  background-color: var(--red);
   padding: 1px 10px;
   color: var(--pri);
   border-radius: 10px;
@@ -624,7 +883,7 @@ form .mark-imp input {
 .task button {
   padding: 12px 25px;
   color: var(--pri);
-  background-color: green;
+  background-color: var(--green);
   font-size: 20px;
   border-radius: 5px;
   border: none;
