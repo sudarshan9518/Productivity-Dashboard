@@ -2,6 +2,7 @@
 
 A simple and interactive **Productivity Dashboard** built with HTML, CSS, and JavaScript to help users manage their **daily goals, tasks, and time tracking**.  
 
+*try to open in microsoft edge
 ## ✨ Features  
 - ✅ Add, edit, and delete daily tasks  
 - ✅ Mark tasks as **important** or completed  
