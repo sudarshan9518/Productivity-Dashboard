@@ -893,3 +893,176 @@ form .mark-imp input {
 .task button:active {
   scale: 0.98;
 }
+
+
+
+
+
+
+:root {
+  --pri: #f8f4e1;
+  --sec: #381c0a;
+  --tri1: #feba17;
+  --tri2: #74512d;
+  --fade: #d2b395;
+  --red: #dc3434;
+  --green: green;
+  --black: black;
+
+  --h1-size: 2.5rem; /* default font scaling */
+  --h2-size: 1.8rem;
+  --h3-size: 1.3rem;
+  --p-size: 1rem;
+}
+
+html {
+  font-size: 16px; /* base, scales with media queries */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--sec);
+  color: var(--pri);
+  font-family: aeonik, sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+#main nav .nav-in {
+  padding: 1rem;
+  border-radius: 1.2rem;
+}
+
+#main nav .nav-in h1 {
+  font-size: 2.5rem;
+}
+
+#main nav .nav-in button {
+  font-size: 2rem;
+  width: 3rem;
+}
+
+/* HEADER */
+.allElems header {
+  height: 40vh;
+  padding: 2rem;
+  border-radius: 1rem;
+  gap: 10vw;
+}
+
+header .header1 h1 {
+  font-size: 5rem;
+}
+
+header .header1 h2 {
+  font-size: 2rem;
+}
+
+header .header2 h2 {
+  font-size: 4rem;
+}
+
+header .header2 h4 {
+  font-size: 2.5rem;
+}
+
+/* CARDS */
+.elem {
+  height: 25rem;
+  width: 20rem;
+  border-radius: 0.8rem;
+}
+
+/* TASKS */
+.task h1 {
+  font-size: 2rem;
+}
+.task details {
+  font-size: 1.2rem;
+}
+
+/* FORMS */
+.task-input,
+textarea {
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+
+  .allElems header {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .goal-container,
+  .todo-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .goal-container .addTask,
+  .todo-container .addTask,
+  .goal-container .allTask,
+  .todo-container .allTask {
+    width: 100%;
+    height: auto;
+  }
+
+  .elem {
+    width: 90%;
+    max-width: 22rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  #main nav .nav-in h1 {
+    font-size: 1.8rem;
+  }
+
+  header .header1 h1 {
+    font-size: 3rem;
+  }
+
+  header .header2 h2 {
+    font-size: 2rem;
+  }
+
+  .allElems header {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .elem {
+    width: 100%;
+    height: auto;
+  }
+
+  .pomo-timer h1 {
+    font-size: 4rem;
+  }
+
+  .pomo-timer button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
